@@ -31,7 +31,7 @@ let timerRunning = true;
 
 
 // following is the list of s and their multiple options of answers with one correct answer
-let quizQuestions = [
+let codeQuestions = [
     {
         "quizHeader": "Commonly used Data Types do NOT Include:",
         "one": "1. strings",
@@ -110,9 +110,61 @@ function startQuiz() {
     
     1000);
 
+};
+
+function showQuestions() {
+    let q = codeQuestions[questionIndex];
+
+    quizQuestionHeader.innerHTML = q.quizQuestionHeader;
+        option1.innerHTML = q.one;
+        option1.setAttribute("data-answer", q.one);
+
+        option2.innerHTML = q.two;
+        option2.setAttribute("data-answer", q.two);
+
+        option3.innerHTML = q.three;
+        option3.setAttribute("data-answer", q.three);
+
+        option4.innerHTML = q.four;
+        option4.setAttribute("data-answer", q.four);
+
+};
+
+
+function checkAnswer(event) {
+
+    event.preventDefault();
+
+    let answer = event.currentTarget.dataset.answer;
+
+    let correctAnswer = null;
+
+        hrElem.classList.add('hr-style');
+        hrDiv.appendChild(hrElem);
+
+    if (codeQuestions[questionIndex].correct === answer) {
+        correctAnswer = answer;
+    }
+
+    if (answer === correctAnswer) {
+        answerResponse.textContent = "Correct!";
+    } else {
+        answerResponse.textContent = "Wrong!";
+        secondsLeft -= 10;
+
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
+    }
+
+    if (codeQuestions.length === questionIndex + 1) {
+        showFinalScore();
+        return;
+    }
+
+    questionIndex++;
+    showQuestions();
 }
-
-
 
 
 
