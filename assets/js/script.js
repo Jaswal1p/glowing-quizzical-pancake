@@ -1,13 +1,20 @@
 // declaration of main divs in the index.html
 const challengeBox = document.querySelector(".challengeBox");
 
-const Box = document.querySelector(".Box");
+const questionBox = document.querySelector(".questionBox");
 
 const responseAns = document.querySelector(".responseAns");
 
 const resultScorePg = document.querySelector(".resultScorePg");
 
 const hrDiv = document.getElementById('div-hr');
+
+// declaration of all buttons & inputs
+
+const startBtn = document.querySelector("#startBtn");
+const submitBtn = document.querySelector("#submitBtn");
+const initials = document.querySelector("#initials");
+const initialInput = document.querySelector("#initialInput");
 
 // declaration of internal secondary divs
 const quizHeader = document.querySelector(".quizHeader");
@@ -26,7 +33,7 @@ let timer = document.getElementById("timer");
 let timerInterval;
 let timerRunning = true;
 
-// const responseAns = document.querySelector("#responseAns");
+
 
 
 
@@ -86,7 +93,7 @@ resultScorePg.style.display = "none";
 
 Timer.textContent = `Time: ${startScore}`;
 
-
+// This is a function to start the quiz from main page
 function startQuiz() {
     resultScorePg.style.display = "none";
     challengeBox.style.display = "none";
@@ -112,6 +119,9 @@ function startQuiz() {
 
 };
 
+
+// this next function is to populate a question and answer options
+
 function showQuestions() {
     let q = codeQuestions[questionIndex];
 
@@ -130,7 +140,7 @@ function showQuestions() {
 
 };
 
-
+// this code-block is to check the clicked answer for correctness, display it in next screen with continously running timer
 function checkAnswer(event) {
 
     event.preventDefault();
@@ -167,11 +177,80 @@ function checkAnswer(event) {
 }
 
 
+// next function is to show final score after complition of all questions or timer runs out
+
+function showFinalScore() {
+    challengeBox.style.display = "none";
+    questionBox.style.display = "none";
+    responseAns.style.display = "none";
+    resultScorePg.style.display = "block";
+    hrDiv.removeChild(hrElem);
+
+    if (startScore === 0 || quizQuestions.length - 1) {
+        finalScoreIs.textContent = `Your final score is ${secondsLeft}`;
+        timerRunning = false;
+    }
+}
+
+// this is for user to claim their score by entering initials and clicking submit button
+submitBtn.textContent = "Submit";
+initials.textContent = "Enter your Initials: ";
+
+// function to save best scores in local storage
+function saveBestScores() {
+
+    window.location.href = './lastpage.html';
+    let getInitials = initialInput.value;
+    secondsLeft = secondsLeft + 1;
+
+    localStorage.setItem("initials", getInitials);
+    localStorage.setItem("secondsLeft", secondsLeft);
+
+    let userScore = {
+        name: `${getInitials}`,
+        score: `${secondsLeft}`
+    };
+
+    arrayOfBestScores.push(userScore);
+    localStorage.setItem("saveUserScoreLocal", JSON.stringify(arrayOfBestScores));
+
+}
+
+function loadBestScores() {
+
+    if (!arrayOfBestScores) {
+        arrayOfBestScores = [];
+
+    } else {
+        arrayOfBestScores = JSON.parse(arrayOfBestScores);
+
+    }
+}
+
+startBtn.addEventListener('click', startQuiz);
+submitBtn.addEventListener('click', saveBestScores);
+
+option1.addEventListener('click', (event) => {
+    checkAnswer(event);
+});
+
+option2.addEventListener('click', (event) => {
+    checkAnswer(event);
+});
+
+option3.addEventListener('click', (event) => {
+    checkAnswer(event);
+});
+
+option4.addEventListener('click', (event) => {
+    checkAnswer(event);
+});
 
 
+loadBestScores();
 
 
-
+// This code block is on the endpage to go back to main page, display score, list of scores and option to delete scores
 function init() {
        const goBackBtn = document.getElementById("goBack");
 
@@ -217,6 +296,4 @@ function init() {
            ol.appendChild(li);
 
        }
-
-
 };
