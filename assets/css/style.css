@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #1f289a;
-    --secondary-color:#5a86b5;
+    --primary-color: #3640c9;
+    --secondary-color:#6b6c91;
     --tertiary-color: #FFFFFF;
 }
 
@@ -13,6 +13,86 @@
 
 body {
     background: cornsilk;
+    text-align: center;
+}
+
+.h1-text {
+    padding-top: 150px;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+.score-text {
+    padding-top: 200px;
+    font-weight: bold;
+    font-size: 38px;
+    padding-left: 18%;
+}
+
+p {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn {
+    text-align: center !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--tertiary-color) !important;
+    font-size: 25px !important;
+    padding: 0px 12px 0px 12px !important;
+}
+
+.btn:hover:enabled {
+    text-align: center !important;
+    background-color: var(--secondary-color)  !important;
+    border-color: var(--secondary-color) !important;
+    color: var(--tertiary-color) !important;
+    font-size: 25px !important;
+    padding: 0px 12px 0px 12px !important;
+}
+
+#score-box {
+    /* color: var(--tertiary-color); */
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-left: 20px;
+    color: white;
+    background-color: #6e72ad;
+    font-size: 25px;
+}
+
+.view-score-box:hover:enabled {
+    color: black !important;
+}
+
+.li-qs {
+    list-style-type: none;
+    padding-left: 15%;
+}
+
+#timer {
+    float: right;
+    padding-right: 5px;
+    padding-top: 5px;
+    margin-right: 20px;
+    color: white;
+    background-color: #b5220b;
+    font-size: 25px;
+}
+
+.challengeBox {
+    align-items: center;
+    text-align: center;
+}
+
+#quizHeader {
+    font-size: 25px;
+    font-weight: bolder;
+    padding-top: 100px;
+    padding-left: 15%;
+    padding-bottom: 15px;
 }
 
 @media screen and (max-width: 980px) {
