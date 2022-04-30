@@ -19,7 +19,7 @@ const option4 = document.getElementById("four");
 
 
 // following is the list of s and their multiple options of answers with one correct answer
-let quizs = [
+let quizQuestions = [
     {
         "quizHeader": "Commonly used Data Types do NOT Include:",
         "one": "1. strings",
@@ -57,3 +57,29 @@ let quizs = [
         "correct": "4. console.log",
     },
 ];
+
+// add an event listener 
+
+document.addEventListener('readystatechange', () => {
+    if (document.readyState === 'interactive') {
+        Infinity();
+
+    }
+
+});
+
+function init() {
+       const goBackBtn = document.getElementById("goBack");
+
+
+
+
+       // takes you back to quiz page
+       goBackBtn.addEventListener('click', (e) => {
+           e.preventDefault();
+           window.location.href = './index.html'
+       })
+
+
+       
+}
