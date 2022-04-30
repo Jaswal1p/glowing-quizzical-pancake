@@ -23,10 +23,10 @@ body {
 }
 
 .score-text {
-    padding-top: 200px;
+    padding-top: 20px;
     font-weight: bold;
     font-size: 38px;
-    padding-left: 18%;
+    
 }
 
 p {
@@ -57,29 +57,60 @@ p {
     /* color: var(--tertiary-color); */
     padding-left: 5px;
     padding-top: 5px;
-    margin-left: 20px;
+    margin-left: 0px;
     color: white;
     background-color: #6e72ad;
     font-size: 25px;
+}
+
+#bestScores {
+    justify-content: center !important;
+}
+
+.view-score {
+    float: left;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    color: white;
+    background-color: var(--primary-color) ;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
 }
 
 .view-score-box:hover:enabled {
     color: black !important;
 }
 
+ul {
+    margin: 0 !important; 
+    padding: 0 !important;
+    list-style: none !important;
+    text-align: left !important;
+}
+
 .li-qs {
     list-style-type: none;
     padding-left: 15%;
+    text-align: left !important;
+    margin: 3px, 0, 10px, o;
 }
 
 #timer {
     float: right;
-    padding-right: 5px;
+    padding-right: 10px;
     padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
     margin-right: 20px;
     color: white;
     background-color: #b5220b;
     font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
 }
 
 .challengeBox {
@@ -94,6 +125,42 @@ p {
     padding-left: 15%;
     padding-bottom: 15px;
 }
+
+.backBtn {
+    float: left;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    color: white;
+    background-color: var(--primary-color) ;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.deleteBtn {
+    float: right;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin-right: 20px;
+    color: white;
+    background-color: #b5220b;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+#responseAns {
+    font-style: inherit;
+    color: black;
+    font-size: 30px;
+    padding-left: 15%;
+}
+
 
 @media screen and (max-width: 980px) {
     .row {
