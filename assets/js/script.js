@@ -8,6 +8,8 @@ const responseAns = document.querySelector(".responseAns");
 const resultScorePg = document.querySelector(".resultScorePg");
 
 const hrDiv = document.getElementById('div-hr');
+const hrElem = document.createElement('HR');
+let arrayOfBestScores = localStorage.getItem("saveUserScoreLocal");
 
 // declaration of all buttons & inputs
 
@@ -33,7 +35,8 @@ let timer = document.getElementById("timer");
 let timerInterval;
 let timerRunning = true;
 
-
+// end-page declarations
+const scoreIs = document.querySelector("#scoreIs")
 
 
 
@@ -150,7 +153,7 @@ function checkAnswer(event) {
     let correctAnswer = null;
 
         hrElem.classList.add('hr-style');
-        hrDiv.appendChild(hrElem);
+        hrDiv.appendChild();
 
     if (codeQuestions[questionIndex].correct === answer) {
         correctAnswer = answer;
