@@ -71,6 +71,15 @@ document.addEventListener('readystatechange', () => {
 function init() {
        const goBackBtn = document.getElementById("goBack");
 
+       const ol = document.getElementById("list");
+       const scoreBox = document.querySelector('#score-box');
+
+       const listOfScores = document.getElementById('#listOfScores');
+       const deleteScores = document.getElementById('#deleteScores');
+
+
+       
+
 
 
 
@@ -81,5 +90,5 @@ function init() {
        })
 
 
-       
+
 }
