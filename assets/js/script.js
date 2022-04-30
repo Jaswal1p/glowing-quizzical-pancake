@@ -87,6 +87,39 @@ resultScorePg.style.display = "none";
 Timer.textContent = `Time: ${startScore}`;
 
 
+function startQuiz() {
+    resultScorePg.style.display = "none";
+    challengeBox.style.display = "none";
+    questionBox.style.display = "block";
+
+    showQuestions();
+
+    timerInterval = setInterval(function () {
+        timer.textContent = `Time: ${secondsLeft}`;
+
+        if (timerRunning === false) {
+            clearInterval(timerInterval);
+        }
+
+        if (secondsLeft === 0) {
+            showFinalScore();
+        } else {
+            secondsLeft--;
+        }
+    }, 
+    
+    1000);
+
+}
+
+
+
+
+
+
+
+
+
 function init() {
        const goBackBtn = document.getElementById("goBack");
 
