@@ -14,12 +14,22 @@
 
                 <div class="nav-bar justify-content-end">
 
+                    <a id="chkScore" class="view-score" href="./endpage.html">View Best Scores</a>
+
+                    <a href="#" class="timer" id="timer"></a>
+
                 </div>
           </nav> 
 
           <main class="main-box">
 
                 <div class="challengeBox">
+
+                    <h1 class="h1-text">Quizzical Coding Quiz!</h1>
+                    
+                    <p id="explanation">Answer the following code-related questions within 75 seconds. Every incorrect carries penalty of your time by ten seconds"</p>
+    
+                    <button id="startBtn" class="btn active" type="button">Start Quiz</button>
                     
                 </div>
                 
@@ -47,7 +57,7 @@
                         <li class="li-qs">
                             <button id="correct"></button>
                         </li>
-                        
+
                     </ul>
 
                 </div>
@@ -57,18 +67,35 @@
                 </div>
 
 
-                <div id="responseAns">
-
-
-
-                </div>
+                <div id="responseAns"></div>
 
                 <div class="resultScorePg">
+                    <h2 id="allDone">ALL DONE !</h2>
+
+                    <div id="scoreIs"></div>
+                    <form class="your-initials">
+
+                        <div class="form-inline">
+                             
+                            <label for="text" id="initials" class="col col-form-label input-group"></label>
+
+                            <div>
+
+                                <input title="initialInput" type="text" class="col form-control" id="initialInput">
+                                <button class="btn" type="button" id="submitBtn"></button>
+
+                            </div>
+                             
+                        </div>
+
+
+                    </form>
 
                 </div>
 
           </main>
-
+            
+          <script src="./assets/js/script.js" type="texte/javascript"></script>
           
     </body>
 

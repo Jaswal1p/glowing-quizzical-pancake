@@ -26,6 +26,9 @@ let timer = document.getElementById("timer");
 let timerInterval;
 let timerRunning = true;
 
+// const responseAns = document.querySelector("#responseAns");
+
+
 
 // following is the list of s and their multiple options of answers with one correct answer
 let quizQuestions = [
