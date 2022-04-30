@@ -17,6 +17,15 @@ const option2 = document.getElementById("two");
 const option3 = document.getElementById("three");
 const option4 = document.getElementById("four");
 
+// declarations for timer
+let secondsLeft = 75;
+let startScore = 0;
+
+let questionIndex = 0;
+let timer = document.getElementById("timer");
+let timerInterval;
+let timerRunning = true;
+
 
 // following is the list of s and their multiple options of answers with one correct answer
 let quizQuestions = [
@@ -68,6 +77,13 @@ document.addEventListener('readystatechange', () => {
 
 });
 
+
+questionBox.style.display = "none";
+resultScorePg.style.display = "none";
+
+Timer.textContent = `Time: ${startScore}`;
+
+
 function init() {
        const goBackBtn = document.getElementById("goBack");
 
@@ -111,8 +127,8 @@ function init() {
            li.textContent = `${i + 1}. ${bestScoreLine} - ${bestScoreLine.score}`;
 
            ol.appendChild(li);
-           
+
        }
 
 
-}
+};
