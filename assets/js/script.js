@@ -79,16 +79,40 @@ function init() {
 
 
        
-
-
-
-
        // takes you back to quiz page
        goBackBtn.addEventListener('click', (e) => {
            e.preventDefault();
            window.location.href = './index.html'
-       })
+       });
 
+       // to delete scores in the local storage
+       deleteScores.addEventListener('click', () => {
+           localStorage.clear();
+
+           while (ol.firstChild) {
+               ol.removeChild(ol.firstChild);
+
+           }
+
+           if (!ol.hasChildNodes ()) {
+               deleteScoresBtn.disabled = true;
+               scoreBox.removeChild(listOfScores);
+
+           }
+
+       });
+
+       // function to display details of submitted score
+       arrayOfBestScores = JSON.parse(arrayOfBestScores);
+
+       for (let i = 0; i < arrayOfBestScores.length; i++) {
+           let bestScoreLine = arrayOfBestScores[i];
+           let li = document.createElement('li');
+           li.textContent = `${i + 1}. ${bestScoreLine} - ${bestScoreLine.score}`;
+
+           ol.appendChild(li);
+           
+       }
 
 
 }
