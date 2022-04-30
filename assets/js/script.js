@@ -1,25 +1,25 @@
 // declaration of main divs in the index.html
 const challengeBox = document.querySelector(".challengeBox");
-const startBtn = document.querySelector("#startBtn");
+
 const questionBox = document.querySelector("#questionBox");
 const quizHeader = document.querySelector("#quizHeader");
 const responseAns = document.querySelector("#responseAns");
 
 const resultScorePg = document.querySelector(".resultScorePg");
 
+// declaration of responses to answer on each generating dynamic elements
 const hrDiv = document.getElementById('div-hr');
 const hrElem = document.createElement('HR');
 let arrayOfBestScores = localStorage.getItem("saveUserScoreLocal");
 
 // declaration of all buttons & inputs
-
-
+const startBtn = document.querySelector("#startBtn");
 const submitBtn = document.querySelector("#submitBtn");
 const initials = document.querySelector("#initials");
 const initialInput = document.querySelector("#initialInput");
 
 
-
+// declaration for answer options
 const option1 = document.getElementById("one");
 const option2 = document.getElementById("two");
 const option3 = document.getElementById("three");
@@ -88,55 +88,6 @@ document.addEventListener('readystatechange', () => {
     }
 
 });
-
-
-// This code block is on the endpage to go back to main page, display score, list of scores and option to delete scores
-function init() {
-    const goBackBtn = document.getElementById("goBack");
-
-    const ol = document.getElementById("list");
-    const scoreBox = document.querySelector('#score-box');
-
-    const listOfScores = document.getElementById('#listOfScores');
-    const deleteScores = document.getElementById('#deleteScores');
-
-
-    
-    // takes you back to quiz page
-    goBackBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.href = './index.html'
-    });
-
-    // to delete scores in the local storage
-    deleteScores.addEventListener('click', () => {
-        localStorage.clear();
-
-        while (ol.firstChild) {
-            ol.removeChild(ol.firstChild);
-
-        }
-
-        if (!ol.hasChildNodes ()) {
-            deleteScoresBtn.disabled = true;
-            scoreBox.removeChild(listOfScores);
-
-        }
-
-    });
-
-    // function to display details of submitted score
-    arrayOfBestScores = JSON.parse(arrayOfBestScores);
-
-    for (let i = 0; i < arrayOfBestScores.length; i++) {
-        let bestScoreLine = arrayOfBestScores[i];
-        let li = document.createElement('li');
-        li.textContent = `${i + 1}. ${bestScoreLine} - ${bestScoreLine.score}`;
-
-        ol.appendChild(li);
-
-    }
-}
 
 
 questionBox.style.display = "none";
@@ -303,50 +254,50 @@ option4.addEventListener('click', (event) => {
 loadBestScores();
 
 
-// // This code block is on the endpage to go back to main page, display score, list of scores and option to delete scores
-// function init() {
-//        const goBackBtn = document.getElementById("goBack");
+// This code block is on the endpage to go back to main page, display score, list of scores and option to delete scores
+function init() {
+    const goBackBtn = document.getElementById("goBack");
 
-//        const ol = document.getElementById("list");
-//        const scoreBox = document.querySelector('#score-box');
+    const ol = document.getElementById("list");
+    const scoreBox = document.querySelector('#score-box');
 
-//        const listOfScores = document.getElementById('#listOfScores');
-//        const deleteScores = document.getElementById('#deleteScores');
+    const listOfScores = document.getElementById('listOfScores');
+    const deleteScoresBtn = document.getElementById('deleteScores');
 
 
-       
-//        // takes you back to quiz page
-//        goBackBtn.addEventListener('click', (e) => {
-//            e.preventDefault();
-//            window.location.href = './index.html'
-//        });
+    
+    // takes you back to quiz page
+    goBackBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = './index.html'
+    });
 
-//        // to delete scores in the local storage
-//        deleteScores.addEventListener('click', () => {
-//            localStorage.clear();
+    // to delete scores in the local storage
+    deleteScoresBtn.addEventListener('click', () => {
+        localStorage.clear();
 
-//            while (ol.firstChild) {
-//                ol.removeChild(ol.firstChild);
+        while (ol.firstChild) {
+            ol.removeChild(ol.firstChild);
 
-//            }
+        }
 
-//            if (!ol.hasChildNodes ()) {
-//                deleteScoresBtn.disabled = true;
-//                scoreBox.removeChild(listOfScores);
+        if (!ol.hasChildNodes ()) {
+            deleteScoresBtn.disabled = true;
+            scoreBox.removeChild(listOfScores);
 
-//            }
+        }
 
-//        });
+    });
 
-//        // function to display details of submitted score
-//        arrayOfBestScores = JSON.parse(arrayOfBestScores);
+    // function to display details of submitted score
+    arrayOfBestScores = JSON.parse(arrayOfBestScores);
 
-//        for (let i = 0; i < arrayOfBestScores.length; i++) {
-//            let bestScoreLine = arrayOfBestScores[i];
-//            let li = document.createElement('li');
-//            li.textContent = `${i + 1}. ${bestScoreLine} - ${bestScoreLine.score}`;
+    for (let i = 0; i < arrayOfBestScores.length; i++) {
+        let bestScoreLine = arrayOfBestScores[i];
+        let li = document.createElement('li');
+        li.textContent = `${i + 1}. ${bestScoreLine.name} - ${bestScoreLine.score}`;
 
-//            ol.appendChild(li);
+        ol.appendChild(li);
 
-//        }
-// };
+    }
+}
